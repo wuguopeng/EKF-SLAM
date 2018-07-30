@@ -1122,15 +1122,15 @@ void ekfslam::displayPL(std::vector<double> ranges)
           line_list.id = 1;
           line_list.type = visualization_msgs::Marker::LINE_LIST;
           line_list.frame_locked = true;
-          // LINE_STRIP/LINE_LIST markers use only the x component of scale, for the line width
-          line_list.scale.x = 0.01;//the line width
+          
+          line_list.scale.x = 0.01;//线的宽度
           
 
-          // Line list is green
+          //线的颜色
           line_list.color.g = 1.0;
           line_list.color.a = 1.0;
 
-          // Create the vertices for the points and lines, The line list needs two points for each line
+          
           geometry_msgs::Point lp;
           lp.x = landmarks[i].beginx;
           lp.y = landmarks[i].a*landmarks[i].beginx+landmarks[i].b;
