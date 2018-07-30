@@ -17,7 +17,7 @@ ekfslam::ekfslam()
 	numObservedLandmarks = 0;
       
         sigma = Eigen::MatrixXd::Zero(3, 3); //初始协方差, 3x3 的单位矩阵       
-        stateX = robotPosition; //机器人位姿和landmark的位置组成的状态,初始时只有机器人状态
+        stateX = robotPosition; 
 
 
         Rt << coV2, 0, 0,
@@ -135,7 +135,7 @@ void ekfslam::ekf(std::vector<double> ranges)
              //根据观测到的landmarks迭代计算
              for(int j=0; j<numObservedLandmarks; j++)
              {
-                    //由预估的位置预测的landmark位置（机器人坐标系下）与实际传感器观测的landmark位置（机器人坐标系下）相减，计算测量余差MeasurementError_j
+                    
                    //2X(3+2*numLandmarks)的矩阵
                    Eigen::MatrixXd outputJacobian; 
                    outputJacobian = cal_outputJacobian(observedLandmarks[j], observedLandmarks[j].id, pre_robotPosition);
@@ -466,7 +466,7 @@ Eigen::Vector2d ekfslam::MeasurementError(Landmark observedLandmark, std::vector
      Eigen::Vector2d real_oLandmarkR(0,0);
      
      bool isOn = false;  //是否能找到对应的observedLandmark
-     //根据传感器数值获得实际的机器人坐标系下的observedLandmark的极坐标, 与observedlandmark相关联
+    
      if(lineRs.size()!=0)
      {
           for(int i=0; i<lineRs.size(); i++)
