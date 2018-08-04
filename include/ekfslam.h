@@ -59,8 +59,8 @@ struct Landmark
          double beginx = 0;
          double endx = 0;
 
-         int id = -1; //the landmarks unique ID
-         int totalTimesObserved = 0; //the number of times we have seen landmark
+         int id = -1; 
+         int totalTimesObserved = 0; 
          int consensusNum; ////局内点个数
 };
 
@@ -97,14 +97,14 @@ public:
        
 
 private:
-    const int MINOBSERVATIONS = 10; //times landmark must be observed to be recognized as landmarks
+    const int MINOBSERVATIONS = 10; 
 
-    const int MAXTRIALS = 100;   //Ransac: max times to run algorithm
+    const int MAXTRIALS = 100;   
     const int SAMPLEANGLE = 20; //每次采样角度范围
-    const int MAXSAMPLE = 10;	  //Ransac: randomly sample 10 points
-    const int MINLINEPOINTS = 75; //Ransac: if less than 60 points left, end Ransac without finding line
-    const int CONSENSUS = 70;     //Ransac: is a line if 55 or more points consensus
-    const double TOLERANCE = 0.01;//Ransac: range point can be within to be part of line  	
+    const int MAXSAMPLE = 10;	  
+    const int MINLINEPOINTS = 75; 
+    const int CONSENSUS = 70;     
+    const double TOLERANCE = 0.01;
 
     //设定的判断直线相似阈值
     const double rhoThreshold = 0.2;
